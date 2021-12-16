@@ -1,4 +1,5 @@
 import math
+from itertools import pairwise
 
 import matplotlib.collections as mc
 import matplotlib.pylab as pl
@@ -6,14 +7,7 @@ import numpy as np
 
 
 def generate_lines(cities, itinerary):
-    # only in python 3.10
-    # from itertools import pairwise
-    # return [(cities[x], cities[y]) for x, y in pairwise(itinerary)]
-
-    lines = []
-    for i in range(len(itinerary) - 1):
-        lines += [(cities[itinerary[i]], cities[itinerary[i + 1]])]
-    return lines
+    return [(cities[x], cities[y]) for x, y in pairwise(itinerary)]
 
 
 def how_far(lines):
